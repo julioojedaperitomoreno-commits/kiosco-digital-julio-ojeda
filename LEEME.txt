@@ -1,0 +1,27 @@
+KIOSCO DIGITAL - JULIO OJEDA FOTOGRAFIA Y DISENOS
+
+ARQUITECTURA DEFINITIVA
+- Un solo servidor Node.js.
+- SQLite para eventos, fotos y pedidos.
+- Disco local del servidor para originales y previews.
+- Sin Cloudflare R2.
+- Sin Supabase.
+- Sin JSON como base de datos.
+- Mercado Pago solo interviene en el cobro.
+
+FLUJO
+Portada -> Eventos disponibles -> Album -> Favoritas -> Carrito -> Mercado Pago -> descarga de originales luego de pago confirmado.
+
+ADMIN
+Crear evento -> cargar muchas fotos -> publicar.
+La portada publica solo eventos publicados.
+
+IMPORTANTE
+Para produccion publica se necesitan: servidor con HTTPS, dominio/base URL publica, token de Mercado Pago y clave de administrador.
+Node 24 o superior.
+
+SEGURIDAD
+- Los originales nunca se publican directamente.
+- La descarga solo se habilita para pedidos con pago APROBADO.
+- En produccion se recomienda usar HTTPS y una clave ADMIN_PASSWORD.
+- Hacer BACKUP.bat periodicamente.
